@@ -61,8 +61,8 @@ export default async function HomePage() {
                 Vanguard Systems
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
-                Five systems. Five operational bottlenecks. One philosophy:
-                the operator stays in control.
+                A growing suite of intelligence software, one problem at a
+                time.
               </h2>
             </div>
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -105,9 +105,8 @@ export default async function HomePage() {
           <Container>
             <div className="relative overflow-hidden rounded-3xl border border-line bg-canvas-raised px-8 py-14 text-center sm:px-16">
               <div className="texture-grid absolute inset-0 -z-10 opacity-60" />
-              <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
-                A growing suite of intelligence software, one problem at a
-                time.
+              <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl">
+                We&apos;re hiring people who like solving real problems.
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-ink-muted">
                 Remote-friendly, small teams, and products that ship to
