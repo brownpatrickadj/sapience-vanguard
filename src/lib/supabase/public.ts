@@ -1,33 +1,18 @@
-import { createServerClient } from "@supabase/ssr";
-import { cookies } from "next/headers";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 
 /**
- * Supabase client for use in Server Components, Route Handlers, and Server Actions.
- * Reads/writes the auth session via cookies. Still subject to RLS (anon/authenticated role) —
- * this is NOT an admin client. For privileged operations, see server-admin.ts.
+ * Supabase client for public, read-only marketing data (published projects,
+ * job openings, site content) — no cookies, no auth session.
+ *
+ * Deliberately NOT the cookie-aware server client from server.ts: touching
+ * cookies() in a Server Component forces Next.js to render that page fully
+ * dynamically on every request (no caching possible), even with
+ * `export const revalidate` set. These public pages don't need a user's
+ * session at all, so this client lets them actually be cached.
  */
-export async function createClient() {
-  const cookieStore = await cookies();
-
-  return createServerClient(
+export function createPublicClient() {
+  return createSupabaseClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return cookieStore.getAll();
-        },
-        setAll(cookiesToSet) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
-            );
-          } catch {
-            // Called from a Server Component where cookies can't be set.
-            // Safe to ignore when middleware is refreshing the session.
-          }
-        },
-      },
-    }
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 }
