@@ -1,8 +1,8 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { JobOpening, Project, SiteContent } from "@/lib/types";
 
 export async function getSiteContent(): Promise<Record<string, Record<string, string>>> {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase.from("sv_site_content").select("key, value");
 
   if (error || !data) return {};
@@ -13,7 +13,7 @@ export async function getSiteContent(): Promise<Record<string, Record<string, st
 }
 
 export async function getPublishedProjects(): Promise<Project[]> {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("sv_projects")
     .select("*")
@@ -25,7 +25,7 @@ export async function getPublishedProjects(): Promise<Project[]> {
 }
 
 export async function getPublishedJobOpenings(): Promise<JobOpening[]> {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("sv_job_openings")
     .select("*")
