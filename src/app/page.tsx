@@ -7,7 +7,8 @@ import { ButtonLink } from "@/components/ui/button";
 import { getPublishedProjects, getSiteContent } from "@/lib/queries";
 
 // Cache the rendered page for 60s instead of hitting Supabase on every
-// visitor — homepage content/projects don't change second-to-second.
+// visitor — homepage content/projects don't change second-to-second, and
+// this removes a database round trip from the critical path of every load.
 export const revalidate = 60;
 
 export default async function HomePage() {
@@ -55,12 +56,12 @@ export default async function HomePage() {
         <section id="projects" className="scroll-mt-24 py-4">
           <Container>
             <div className="max-w-2xl">
-              <p className="text-sm font-medium uppercase tracking-widest text-accent-bright">
-                What we&apos;re building
+              <p className="font-mono text-sm font-medium uppercase tracking-widest text-accent-bright">
+                Vanguard Systems
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
-                A growing suite of intelligence software, one problem at a
-                time.
+                Five systems. Five operational bottlenecks. One philosophy:
+                the operator stays in control.
               </h2>
             </div>
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
