@@ -6,6 +6,10 @@ import { ProjectCard } from "@/components/site/project-card";
 import { ButtonLink } from "@/components/ui/button";
 import { getPublishedProjects, getSiteContent } from "@/lib/queries";
 
+// Cache the rendered page for 60s instead of hitting Supabase on every
+// visitor — homepage content/projects don't change second-to-second.
+export const revalidate = 60;
+
 export default async function HomePage() {
   const [content, projects] = await Promise.all([
     getSiteContent(),

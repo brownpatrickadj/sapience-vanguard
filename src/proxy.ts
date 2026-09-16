@@ -12,7 +12,10 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
-  ],
+  // Only the management dashboard needs a session check on every request —
+  // the public marketing pages (/, /careers) don't, and running this on
+  // every page load adds an extra network round trip to Supabase before
+  // the page can even start rendering, which was the main cause of slow
+  // page loads.
+  matcher: ["/management/:path*"],
 };
