@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* Sapience Vanguard brand tokens */
-  --canvas: #090b10;
-  --canvas-raised: #10131b;
-  --canvas-panel: #141824;
-  --line: #232838;
-  --line-soft: #1a1e2a;
+  /* Sapience Vanguard brand tokens — obsidian + bone, signal copper accent.
+     Kept deliberately restrained: the accent is for small, meaningful
+     moments (status marks, active states, buttons, the SV-0x labels), never
+     washed across large surfaces. */
+  --canvas: #0a0b0c;
+  --canvas-raised: #16181b;
+  --canvas-panel: #1b1d21;
+  --line: #2a2d30;
+  --line-soft: #1e2023;
 
-  --ink: #eef0f5;
-  --ink-muted: #98a1b5;
-  --ink-faint: #5c6479;
+  --ink: #f1efe8;
+  --ink-muted: #9a9d9f;
+  --ink-faint: #5c6063;
 
-  --accent: #5b7cfa;
-  --accent-bright: #8aa3ff;
-  --accent-ink: #04070f;
+  --accent: #ff5a1f;
+  --accent-bright: #ff7a45;
+  --accent-ink: #1a0700;
 
   --warm: #f2b84b;
   --teal: #3dd6c4;
@@ -44,9 +47,13 @@ body {
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   background-color: var(--canvas);
   background-image:
-    radial-gradient(1200px 600px at 15% -10%, rgba(91, 124, 250, 0.16), transparent 60%),
-    radial-gradient(900px 500px at 100% 0%, rgba(61, 214, 196, 0.10), transparent 55%);
+    radial-gradient(1100px 550px at 15% -10%, rgba(255, 90, 31, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(255, 90, 31, 0.05), transparent 55%);
   background-repeat: no-repeat;
+}
+
+.font-mono {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
 }
 
 .font-display {

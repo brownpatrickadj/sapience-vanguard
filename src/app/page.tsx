@@ -29,7 +29,8 @@ export default async function HomePage() {
         <section className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
           <div className="texture-grid absolute inset-0 -z-10" />
           <Container className="flex flex-col items-center text-center">
-            <span className="inline-flex items-center rounded-full border border-line bg-canvas-raised px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-accent-bright">
+            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-canvas-raised px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-widest text-accent-bright">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
               {hero.eyebrow ?? "Sapience Vanguard"}
             </span>
             <h1 className="mt-7 max-w-3xl font-display text-4xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-6xl">

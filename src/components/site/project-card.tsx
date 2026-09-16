@@ -14,17 +14,24 @@ export function ProjectCard({ project }: { project: Project }) {
           background: `radial-gradient(420px 220px at 0% 0%, color-mix(in oklab, ${accent} 18%, transparent), transparent 70%)`,
         }}
       />
-      <div className="mb-5 flex items-center gap-3">
+      <div className="mb-5 flex items-center justify-between">
         <div
           className="h-1.5 w-10 rounded-full"
           style={{ backgroundColor: accent }}
         />
-        <p
-          className="font-mono text-[11px] uppercase tracking-widest text-ink-faint"
-          aria-hidden="true"
-        >
-          SV-{String(project.sort_order).padStart(2, "0")}
-        </p>
+        <div className="flex items-center gap-1.5">
+          <span
+            className="h-1.5 w-1.5 shrink-0 rounded-full"
+            style={{ backgroundColor: accent }}
+            aria-hidden="true"
+          />
+          <p
+            className="font-mono text-[11px] uppercase tracking-widest text-ink-faint"
+            aria-hidden="true"
+          >
+            SV-{String(project.sort_order).padStart(2, "0")}
+          </p>
+        </div>
       </div>
       <h3 className="font-display text-xl font-semibold text-ink">
         {project.name}
