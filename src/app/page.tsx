@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
@@ -27,6 +28,23 @@ export default async function HomePage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+          <div className="absolute inset-0 -z-20">
+            <Image
+              src="/images/hero-bg.jpg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover opacity-70"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, var(--canvas) 0%, color-mix(in oklab, var(--canvas) 55%, transparent) 45%, var(--canvas) 100%)",
+              }}
+            />
+          </div>
           <div className="texture-grid absolute inset-0 -z-10" />
           <Container className="flex flex-col items-center text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-line bg-canvas-raised px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-widest text-accent-bright">
@@ -79,8 +97,53 @@ export default async function HomePage() {
           </Container>
         </section>
 
+        {/* Connected systems */}
+        {projects.length > 0 && (
+          <section className="py-20">
+            <Container className="flex flex-col items-center text-center">
+              <p className="font-mono text-sm font-medium uppercase tracking-widest text-accent-bright">
+                The bigger picture
+              </p>
+              <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold text-ink sm:text-4xl">
+                Systems that work together.
+              </h2>
+              <p className="mt-4 max-w-lg text-balance text-sm leading-relaxed text-ink-muted">
+                Capture, decide, operate, create, finance. Each system is
+                powerful on its own. Together, they give you a complete
+                operating advantage.
+              </p>
+              <div className="relative mt-10 w-full max-w-xl overflow-hidden rounded-2xl border border-line bg-canvas-panel">
+                <Image
+                  src="/images/connected-systems.png"
+                  alt="Sapience Vanguard's five systems — SnapDocs (Capture), Sapience Adjusting (Claims), Wheelhouse (Operate), Forge Reports (Create), and RebelLedger (Finance) — connected around a central intelligence layer."
+                  width={405}
+                  height={290}
+                  sizes="(min-width: 640px) 576px, 100vw"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+            </Container>
+          </section>
+        )}
+
         {/* Mission */}
-        <section id="mission" className="scroll-mt-24 py-28">
+        <section id="mission" className="relative scroll-mt-24 overflow-hidden py-28">
+          <div className="absolute inset-0 -z-20">
+            <Image
+              src="/images/mission-bg.jpg"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover opacity-45"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, var(--canvas) 0%, color-mix(in oklab, var(--canvas) 60%, transparent) 30%, color-mix(in oklab, var(--canvas) 60%, transparent) 70%, var(--canvas) 100%)",
+              }}
+            />
+          </div>
           <Container className="flex flex-col items-center text-center">
             <p className="text-sm font-medium uppercase tracking-widest text-accent-bright">
               {mission.title ?? "Our mission"}
@@ -103,8 +166,23 @@ export default async function HomePage() {
         {/* Careers teaser */}
         <section className="py-4">
           <Container>
-            <div className="relative overflow-hidden rounded-3xl border border-line bg-canvas-raised px-8 py-14 text-center sm:px-16">
-              <div className="texture-grid absolute inset-0 -z-10 opacity-60" />
+            <div className="relative isolate overflow-hidden rounded-3xl border border-line px-8 py-14 text-center sm:px-16">
+              <div className="absolute inset-0 -z-10 bg-canvas-raised">
+                <Image
+                  src="/images/careers-bg.jpg"
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 1024px, 100vw"
+                  className="object-cover opacity-90"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, color-mix(in oklab, var(--canvas-raised) 20%, transparent) 0%, color-mix(in oklab, var(--canvas-raised) 55%, transparent) 55%, var(--canvas-raised) 100%)",
+                  }}
+                />
+              </div>
               <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl">
                 We&apos;re hiring people who like solving real problems.
               </h2>
